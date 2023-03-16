@@ -21,6 +21,7 @@ namespace TwoDimExamples
         {
             //Example1();
             //Example2();
+            Example3();
 
             Console.ReadKey();
         }
@@ -90,6 +91,35 @@ namespace TwoDimExamples
                 }
 
                 Console.WriteLine($"   Total: {totalSales}");
+            }
+        }
+
+        static void Example3()
+        {
+            double sum, average;
+
+            string[,] laptimes =
+            {
+                {"Ari", "45.7", "46.2", "45.5", "45.2" },
+                {"James", "47.6", "48.1", "47.9", "47.3" },
+                {"Jack", "45.9", "45.2", "49.2", "48.8" }
+            };
+
+            for (int row = 0; row < laptimes.GetLength(0); row++)
+            {
+                sum = 0;
+                Console.Write(laptimes[row, 0] + ":\t");
+
+                for (int col = 1; col < laptimes.GetLength(1); col++)
+                {
+                    Console.Write($"{laptimes[row, col]} ");
+                    sum = sum + Convert.ToDouble(laptimes[row, col]);
+                }
+
+                average = sum / (laptimes.GetLength(1) - 1);
+
+                Console.WriteLine($"   Total: {sum}   Average: {average.ToString(".0s")}");
+
             }
         }
     }
